@@ -1,0 +1,56 @@
+#回合制戰鬥遊戲
+import random  # 隨機函數
+class legend:
+    HP = 500
+    def __init__(self, name):
+        self.name = name
+    def defense(self, instruct):
+        if instruct == 1:
+            print(f"{self.name} prepare for defense!")
+            return 0.5
+        elif instruct == 2:
+            print(f"{self.name} try to dodge attack!")
+            return random.choice([0, 1])
+class archer(legend):
+    def attack(self, instruct):
+        if instruct == 1:
+            print(f"{self.name} is shooting!")
+            return 200
+        elif instruct == 2:
+            print(f"{self.name} shoot his giant arrow!")
+            return random.choice([300, 100])
+class monster(legend):
+    def attack(self, instruct):
+        if instruct == 1:
+            print(f"{self.name} is chopping!")
+            return 220
+        elif instruct == 2:
+            print(f"{self.name} concentrate his powerful chop!")
+            return random.choice([270, 70])
+player_name = input("enter your name:")
+player = archer(player_name)
+enemy = monster("Gabilin")
+fate = random.choice([1, 2])
+
+while True:
+    AT_instruct = int(input("enter your attack instruction(1)normal attack(2)ultimate:"))
+    player_ATpower = player.attack(AT_instruct)
+    damage = int(enemy.defense(fate) * player_ATpower)
+    enemy.HP -= damage
+    if enemy.HP <= 0:
+        print(f"{enemy.name} dowm! {player.name} win!")
+        break
+    else:
+        print(f"{enemy.name} is assaulted {damage} damage! {enemy.HP} HP less!")
+        print("")
+
+    DE_instruct = int(input("enter your defense instruction(1)block(2)dodge:"))
+    enemy_ATpower = enemy.attack(fate)
+    damage = int(player.defense(DE_instruct) * enemy_ATpower)
+    player.HP -= damage
+    if player.HP <= 0:
+        print(f"{player.name} dowm! game over!")
+        break
+    else:
+        print(f"{player.name} is assaulted {damage} damage! {player.HP} HP less!")
+        print("")
