@@ -1,0 +1,28 @@
+# 庫存查詢應用
+phone1 = {
+    "brand" : "apple",
+    "model" : "iphone 13",
+    "storage" : "128 GB",
+    "color" : "black"
+}
+phone2 = {
+    "brand" : "samsung",
+    "model" : "xxx",
+    "storage" : "256 GB",
+    "color" : "dark blue"
+}
+phone3 = {
+    "brand" : "google",
+    "model" : "pixel 8",
+    "storage" : "128 GB",
+    "color" : "light gray"
+}
+store = [phone1, phone2, phone3]
+print(store[2]["model"])
+inquiry = input("plz enter the inquiry brand:").lower()
+if inquiry in str(store):  # 整個字典合併成字串
+    for phone in store:
+        if phone["brand"] == inquiry:
+            print(f"the store now have {phone['storage']} {phone['model']} with {phone['color']}")
+else:
+    print(f"there is no {inquiry} in store")
