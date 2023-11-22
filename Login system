@@ -1,0 +1,12 @@
+# 密碼鎖練習
+correctPW = "08ntu"
+for times in range(5):
+    PW = input("enter password:")
+    if PW == correctPW:
+        print("correct password")
+        break
+    elif PW != correctPW and times < 4:
+        print("incorrect password plz try again")
+        print(f"you have {4-times} chances left")
+    else:
+        print("your account is locked for too many times entering wrong password")
