@@ -1,0 +1,22 @@
+# 購物車程式
+stuff = []
+price = []
+amount = []
+total = []
+while True:
+    A = input("what do you want to buy?")
+    if A.lower() == "ok":
+     break
+    B = float(input(f"what is the price of the {A}?"))
+    C = int(input(f"how many {A} do you want to buy?"))
+    D = float(B * C)
+    stuff.append(A)
+    price.append(B)
+    amount.append(C)
+    total.append(D)
+print(f"your cart list:{amount} of {stuff}")
+print(f"price per stuff:{price}")
+print(f"total:{total}")
+for index, A in enumerate(stuff):
+    print(f"No.{index + 1}: {amount[index]} of {A}({price[index]:.1f}$), {total[index]:.1f} in total")
+print(f"total: {sum(total)}$")
