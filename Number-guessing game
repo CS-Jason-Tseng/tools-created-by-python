@@ -1,0 +1,28 @@
+# 商品價格猜測遊戲
+good = 1000
+Aplayer = input("enter the name of player A:")
+Bplayer = input("enter the name of player B:")
+guesstimes = 1
+totaltimes = 3
+while guesstimes <= totaltimes:
+    Aguess = int(input(f"{Aplayer} guess a price:"))
+    Bguess = int(input(f"{Bplayer} guess a price:"))
+    if Aguess == good or Bguess == good:
+        break
+# abs絕對值
+    elif abs(good - Aguess) < abs(good - Bguess):
+        print(f"{Aplayer} got a closer answer!")
+    elif abs(good - Aguess) == abs(good - Bguess):
+        print("your answer are both equally close!")
+    else:
+        print(f"{Bplayer} got a closer answer!")
+    guesstimes += 1
+if Aguess == good:
+    print(f"Correct!{Aplayer} you win!")
+elif Bguess == good:
+    print(f"Correct!{Bplayer} you win!")
+elif abs(good - Aguess) < abs(good - Bguess):
+    print(f"time's up! the correct price is {good}, {Aplayer} got a closer answer, {Aplayer} win!")
+else:
+    print(f"time's up! the correct price is {good}, {Bplayer} got a closer answer, {Bplayer} win!")
+
