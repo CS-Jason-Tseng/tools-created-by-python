@@ -1,0 +1,10 @@
+username = input("enter your username:")
+if len(username) > 12:
+    print("your name cannot exceed than 12 words")
+elif " " in username:
+    print("your name cannot include space")
+# elif not username.isalpha():  # 是否不為英文字母
+elif username.isdigit():  # 是否為數字
+    print("your name cannot include digits")
+else:
+    print(f"welcome {username}")
