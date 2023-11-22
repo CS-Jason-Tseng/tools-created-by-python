@@ -1,0 +1,30 @@
+GradeSystem = ["jason", 90, "allen", 85, "amy", 83, "beth", 77 ]
+action = input("plz input operation(A)inqury(B)new(C)delete(D)modify").upper()
+if action == "A":
+    name = input("plz input the inquiry name:")
+    if name not in GradeSystem:
+        print("none")
+    else:
+        priority = GradeSystem.index(name)
+        print(f"the grade of {name} is {GradeSystem[priority+1]}")
+elif action == "B":
+    info = input("input the additional name/grade")
+    GradeSystem.extend(info.split("/"))
+    print(GradeSystem)
+    print("update completed")
+    print(f"number of people:{int(len(GradeSystem)/2)}")
+elif action == "C":
+    name = input("plz input the delete name:")
+    name_number = GradeSystem.index(name)
+    GradeSystem.pop(name_number)
+    GradeSystem.pop(name_number)
+    print(GradeSystem)
+elif action == "D":
+    name_modify = input("plz input the modifying name:")
+    grade = input("plz input new grade:")
+    priority = GradeSystem.index(name_modify)
+    GradeSystem[priority+1] = grade
+    print(GradeSystem)
+    print("update completed")
+else:
+    print("error")
