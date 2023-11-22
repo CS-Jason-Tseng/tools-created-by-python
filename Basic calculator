@@ -1,0 +1,20 @@
+# 簡易計算機
+while True:
+    calculate = input("plz enter a calculation type:(1)plus(2)minus(3)cross(4)divide (enter any word to ESC):")
+    if calculate in ("1", "2", "3", "4"):
+        number1 = int(input("enter first number"))
+        number2 = int(input("enter second number"))
+        if calculate == "1":
+            print(f"{number1} + {number2} equal to {plus(number1, number2)}")
+        if calculate == "2":
+            print(f"{number1} - {number2} equal to {minus(number1, number2)}")
+        if calculate == "3":
+            print(f"{number1} * {number2} equal to {cross(number1, number2)}")
+        if calculate == "4":
+            if number1 % number2 == 0:
+                print(f"{number1} / {number2} equal to {divide(number1, number2)[0]}")
+            else:
+                print(f"{number1} / {number2} equal to {divide(number1, number2)[0]} and {divide(number1, number2)[1]}")
+    else:
+        print("bye!")
+        break
